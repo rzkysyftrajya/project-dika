@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400&display=swap");
+
+:root {
+  --primary-color: #1e40af;
+  --secondary-color: #f97316;
+  --accent-color: #ec4899;
+  --text-color: #1e293b;
+  --bg-color: #ffffff;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--bg-color);
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-condensed {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.nav-link,
+.mobile-link {
+  @apply font-semibold text-sm tracking-wider transition-colors duration-300 ease-in-out;
+}
+
+.nav-link:hover,
+.mobile-link:hover {
+  @apply text-secondary-color transform translateY--2px;
+}
+
+.dropdown-toggle::after {
+  content: "\f0d7";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 0.6rem;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+.dropdown-menu {
+  @apply absolute top-full left-0 w-48 bg-white text-black text-xs font-semibold rounded shadow-md p-2 opacity-0 invisible transition-opacity duration-300 ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+  @apply opacity-100 visible;
+}
+
+.dropdown-item {
+  @apply block p-2 border-b border-gray-200;
+}
+
+.dropdown-item:last-child {
+  @apply border-none;
+}
+
+.dropdown-item:hover {
+  @apply bg-gray-100;
+}
+
+.hero-fade {
+  @apply animate-fadeInDown text-3xl md:text-4xl font-bold;
+}
+
+.animate-fade-up {
+  @apply animate-fadeUp;
+}
+
+.section-accent {
+  @apply bg-primary-color text-white p-12;
+}
+
+.section-accent h2 {
+  @apply text-2xl font-bold mb-6;
+}
+
+.section-accent ul li {
+  @apply flex items-start gap-4 mb-4 text-lg font-bold;
+}
+
+.section-accent i {
+  @apply bg-accent-color text-white p-2 rounded-full w-10 h-10 flex items-center justify-center;
+}
+
+.fall {
+  @apply transition-transform duration-300 ease-in-out shadow-md;
+}
+
+.fall:hover {
+  @apply transform translateY--5px shadow-lg;
+}
+
+footer {
+  @apply bg-text-color text-white p-6 text-sm;
+}
+
+footer a {
+  @apply text-white transition-colors duration-300 ease-in-out;
+}
+
+footer a:hover {
+  @apply text-secondary-color;
+}
+
+.slider {
+  @apply overflow-hidden relative;
+}
+
+.slider-track {
+  @apply flex transition-transform duration-500 ease-in-out;
+}
+
+.slide {
+  @apply min-w-full transition-opacity duration-500 ease-in-out;
+}
+
+.slide img {
+  @apply w-full h-auto block object-cover;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    @apply opacity-0 transform translateY--30px;
+  }
+  to {
+    @apply opacity-100 transform translateY-0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    @apply transform translateY-30px opacity-0;
+  }
+  to {
+    @apply transform translateY-0 opacity-100;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-link,
+  .mobile-link {
+    @apply text-base;
+  }
+
+  .hero-fade {
+    @apply text-2xl;
+  }
+
+  .section-accent h2 {
+    @apply text-xl;
+  }
+
+  .section-accent ul li {
+    @apply text-base;
+  }
+
+  .swiper-container {
+    @apply px-4;
+  }
+
+  .swiper-slide {
+    @apply px-4;
+  }
+}
+
+/* Accessibility */
+a:focus {
+  @apply outline-none;
+}
+
+a:focus-visible {
+  @apply ring-2 ring-secondary-color;
+}
