@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400&display=swap");
-
 :root {
   --primary-color: #1e40af;
   --secondary-color: #f97316;
@@ -22,6 +21,49 @@ h2,
 h3,
 .font-condensed {
   font-family: "Roboto Condensed", sans-serif;
+}
+
+/* style.css */
+
+.navbar {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed; /* Pastikan posisi navbar */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Pastikan z-index agar navbar berada di atas */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Aturkan susunan kolom di perangkat kecil */
+    align-items: flex-start; /* Aturkan elemen di awal baris */
+  }
+}
+
+/* Tambahkan tombol toggle untuk menampilkan/menyembunyikan navbar di perangkat kecil */
+.toggle-button {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .toggle-button {
+    display: block;
+  }
+}
+
+#mobile-menu {
+  display: none; /* Sembunyikan menu mobile secara default */
+}
+
+#mobile-menu.active {
+  display: block; /* Tampilkan menu mobile saat aktif */
 }
 
 .nav-link,

@@ -1,21 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Dropdown menu toggle
-    const dropdown = document.querySelector(".dropdown");
-    const dropdownMenu = document.querySelector(".dropdown-menu");
-
-    if (dropdown && dropdownMenu) {
-        dropdown.addEventListener("click", () => {
-            dropdownMenu.classList.toggle("hidden");
-        });
-    }
-
     // Mobile menu toggle
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
 
     if (menuToggle && mobileMenu) {
         menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
+            mobileMenu.classList.toggle("active");
         });
     }
 
