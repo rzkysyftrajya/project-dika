@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri Armada - Wijaya Rentcar Medan</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-md z-50 border-b border-emerald-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="images/logo-wijaya.webp" alt="Wijaya Rentcar Medan" class="h-14 w-14 object-contain transition-all duration-500 group-hover:rotate-[15deg]" />
+                    <span class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">Wijaya Rentcar</span
+            >
+          </a>
+          <div class="hidden md:flex items-center space-x-6">
+            <a href="index.html" class="nav-link">Beranda</a>
+            <a href="tentang.html" class="nav-link">Tentang</a>
+            <a href="layanan.html" class="nav-link">Layanan</a>
+            <a href="armada.html" class="nav-link text-emerald-600 font-bold"
+              >Armada</a
+            >
+            <a href="kontak.html" class="nav-link">Kontak</a>
+            <a href="testimoni.html" class="nav-link">Testimoni</a>
+            <a
+              href="https://wa.me/6282171394339"
+              class="ml-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full shadow-lg flex items-center gap-2 transform hover:scale-105"
+            >
+              <i class="fab fa-whatsapp text-lg"></i> Booking
+            </a>
+          </div>
+          <button id="menu-toggle" class="md:hidden text-gray-600 p-2">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden absolute w-full bg-white shadow-xl max-h-0 overflow-hidden transition-all duration-500"
+      >
+        <div class="px-6 py-4 space-y-4">
+          <a
+            href="index.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Tentang</a
+          >
+          <a
+            href="layanan.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Layanan</a
+          >
+          <a
+            href="armada.html"
+            class="block py-3 px-4 rounded-xl bg-emerald-50 text-emerald-700"
+            >Armada</a
+          >
+          <a
+            href="kontak.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Kontak</a
+          >
+          <a
+            href="testimoni.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Testimoni</a
+          >
+          <a
+            href="https://wa.me/6282171394339"
+            class="block py-3 text-center bg-emerald-600 text-white rounded-full shadow-lg hover:bg-emerald-700 transition-transform transform hover:scale-95"
+            >Booking via WhatsApp</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="pt-32 pb-16 bg-gradient-to-br from-emerald-100 to-white text-center"
+    >
+      <div class="max-w-6xl mx-auto px-6" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Galeri Armada Kami
+        </h1>
+        <p class="text-lg text-gray-600">
+          Lebih dari 20+ unit mobil berkualitas siap disewa
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter -->
+    <div
+      class="max-w-7xl mx-auto px-6 py-6 sticky top-20 bg-white/80 backdrop-blur-md z-40"
+    >
+      <div class="flex flex-wrap gap-3 justify-center" data-aos="fade-down">
+        <button
+          class="filter-btn px-5 py-2 bg-emerald-600 text-white rounded-full"
+        >
+          All
+        </button>
+        <button
+          class="filter-btn px-5 py-2 bg-gray-200 hover:bg-emerald-100 rounded-full"
+        >
+          SUV
+        </button>
+        <button
+          class="filter-btn px-5 py-2 bg-gray-200 hover:bg-emerald-100 rounded-full"
+        >
+          MPV
+        </button>
+        <button
+          class="filter-btn px-5 py-2 bg-gray-200 hover:bg-emerald-100 rounded-full"
+        >
+          Sedan
+        </button>
+        <button
+          class="filter-btn px-5 py-2 bg-gray-200 hover:bg-emerald-100 rounded-full"
+        >
+          BUS
+        </button>
+      </div>
+    </div>
+
+    <!-- Armada Grid -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+      >
+        <!-- Armada Card Template -->
+        <!-- Duplikasikan div ini untuk total 20 mobil -->
+        <div
+          class="armada-card bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-xl"
+          data-aos="zoom-in"
+          data-category="mpv"
+        >
+          <div class="relative aspect-[4/3] overflow-hidden group bg-gray-200">
+            <img
+              src="images/armada/avanza.jpg"
+              alt="Toyota Avanza"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 flex items-end p-4"
+            >
+              <h3 class="text-white font-bold text-xl">Toyota Avanza</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <p class="text-emerald-600 font-bold text-xl">
+                Rp 450.000 <span class="text-sm">/hari</span>
+                    </p>
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">7 Kursi</span
+              >
+            </div>
+            <a
+              href="https://wa.me/6282171394339?text=Saya%20tertarik%20dengan%20Toyota%20Avanza"
+              class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-2.5 rounded-lg transition-all flex items-center justify-center gap-2"
+            >
+              <i class="fab fa-whatsapp"></i> Pesan via WA
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="armada-card bg-white rounded-xl shadow-md overflow-hidden transition-all hover:shadow-xl"
+          data-aos="zoom-in"
+          data-category="mpv"
+        >
+          <div class="relative aspect-[4/3] overflow-hidden group bg-gray-200">
+            <img
+              src="images/armada/avanza (1).webp"
+              alt="Toyota Avanza"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/60 flex items-end p-4"
+            >
+              <h3 class="text-white font-bold text-xl">Toyota Avanza</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <p class="text-emerald-600 font-bold text-xl">
+                Rp 450.000 <span class="text-sm">/hari</span>
+                    </p>
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">7 Kursi</span
+              >
+            </div>
+            <a
+              href="https://wa.me/6282171394339?text=Saya%20tertarik%20dengan%20Toyota%20Avanza"
+              class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-2.5 rounded-lg transition-all flex items-center justify-center gap-2"
+            >
+              <i class="fab fa-whatsapp"></i> Pesan via WA
+            </a>
+          </div>
+        </div>
+
+        <!-- Tambahkan mobil lain dengan data-category sesuai filter -->
+        <!-- SUV, Sedan, Premium, dll -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-700 text-white py-8 text-center text-sm">
+      <div class="max-w-6xl mx-auto px-4">
+        &copy; 2025 Wijaya Rentcar Medan. Semua Hak Dilindungi.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
+</html>

@@ -1,129 +1,207 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tentang Kami - RF Transport</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js" defer></script>
+    <title>Tentang Wijaya Rentcar Medan</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="bg-white text-gray-800">
+<body class="bg-gray-50 font-sans">
     <!-- Navbar -->
-    <header class="bg-black text-white fixed w-full z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-            <img src="images/logo.png" alt="RF Transport" class="h-10" />
-            <nav class="hidden md:flex space-x-6 items-center">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="tentang.html" class="nav-link">Tentang</a>
-                <a href="layanan.html" class="nav-link">Layanan</a>
-                <a href="galeri.html" class="nav-link">Galeri</a>
-                <a href="kontak.html" class="nav-link">Kontak</a>
-                <a href="https://wa.me/6282171394339" class="ml-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow">BOOK NOW</a
-          >
-        </nav>
-        <button id="menu-toggle" class="md:hidden">
-          <i class="fas fa-bars text-white"></i>
-        </button>
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-md z-50 border-b border-emerald-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="images/logo-wijaya.webp" alt="Wijaya Rentcar Medan" class="h-14 w-14 object-contain transition-all duration-500 group-hover:rotate-[15deg]" />
+                    <span class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">Wijaya Rentcar</span
+            >
+          </a>
+          <div class="hidden md:flex items-center space-x-6">
+            <a href="index.html" class="nav-link">Beranda</a>
+            <a href="tentang.html" class="nav-link text-emerald-600 font-bold"
+              >Tentang</a
+            >
+            <a href="layanan.html" class="nav-link">Layanan</a>
+            <a href="armada.html" class="nav-link">Armada</a>
+            <a href="kontak.html" class="nav-link">Kontak</a>
+            <a href="testimoni.html" class="nav-link">Testimoni</a>
+            <a
+              href="https://wa.me/6282171394339"
+              class="ml-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full shadow-lg flex items-center gap-2 transform hover:scale-105"
+            >
+              <i class="fab fa-whatsapp text-lg"></i> Booking
+            </a>
+          </div>
+          <button id="menu-toggle" class="md:hidden text-gray-600 p-2">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
       </div>
       <div
         id="mobile-menu"
-        class="hidden md:hidden bg-black text-white px-6 py-4"
+        class="md:hidden absolute w-full bg-white shadow-xl max-h-0 overflow-hidden transition-all duration-500"
       >
-        <a href="index.html" class="mobile-link block mb-4">Home</a>
-                <a href="tentang.html" class="mobile-link block mb-4">Tentang</a>
-                <a href="layanan.html" class="mobile-link block mb-4">Layanan</a>
-                <a href="galeri.html" class="mobile-link block mb-4">Galeri</a>
-                <a href="kontak.html" class="mobile-link block mb-4">Kontak</a>
-                <a href="https://wa.me/6282171394339" class="mobile-link block mb-4 font-semibold text-green-400">BOOK NOW</a
-        >
+        <div class="px-6 py-4 space-y-4">
+          <a
+            href="index.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Beranda</a
+          >
+          <a
+            href="tentang.html"
+            class="block py-3 px-4 rounded-xl bg-emerald-50 text-emerald-700"
+            >Tentang</a
+          >
+          <a
+            href="layanan.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Layanan</a
+          >
+          <a
+            href="armada.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Armada</a
+          >
+          <a
+            href="kontak.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Kontak</a
+          >
+          <a
+            href="testimoni.html"
+            class="block py-3 px-4 rounded-xl hover:bg-emerald-50"
+            >Testimoni</a
+          >
+          <a
+            href="https://wa.me/6282171394339"
+            class="block py-3 text-center bg-emerald-600 text-white rounded-full shadow-lg hover:bg-emerald-700 transition-transform transform hover:scale-95"
+            >Booking via WhatsApp</a
+          >
+        </div>
       </div>
-    </header>
+    </nav>
 
-    <!-- About Section -->
-    <section class="pt-32 pb-20 px-6 max-w-5xl mx-auto">
-      <h1 class="text-4xl font-bold text-center mb-10">Tentang RF Transport</h1>
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <img
-            src="images/Profil-RF-TRANSPORT-BARNER.png"
-            alt="Profil RF Transport"
-            class="rounded-lg shadow"
-          />
-        </div>
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Profil Perusahaan</h2>
-          <p class="mb-4">
-            RF Transport adalah penyedia layanan transportasi profesional yang
-            berfokus di wilayah Medan dan sekitarnya. Kami menyediakan layanan
-            sewa mobil, antar-jemput bandara, dan city tour dengan armada
-            terawat dan driver berpengalaman.
-          </p>
-          <p>
-            Sejak 2010, kami berkomitmen memberikan pelayanan terbaik dengan
-            harga bersaing demi kepuasan pelanggan.
-          </p>
-        </div>
+    <!-- Hero -->
+    <section
+      class="pt-32 pb-20 bg-gradient-to-br from-emerald-50 to-white text-center"
+    >
+      <div class="max-w-6xl mx-auto px-6" data-aos="fade-down">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Tentang Wijaya Rentcar Medan
+        </h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Menjadi solusi transportasi terpercaya di Medan sejak 2025 dengan
+          pelayanan ramah, aman, dan profesional.
+        </p>
       </div>
+    </section>
 
-      <!-- Team Section -->
-      <h2 class="text-3xl font-bold text-center mb-10 mt-20">Tim Kami</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img
-            src="images/team1.jpeg"
-            alt="Team Member 1"
-            class="rounded-lg shadow mb-4"
-          />
-          <h3 class="text-2xl font-semibold mb-2">Gus miftah</h3>
-          <p class="text-gray-700">CEO & Founder</p>
+    <!-- Sejarah Singkat -->
+    <section class="py-16 bg-white">
+      <div
+        class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
+      >
+        <div data-aos="fade-right">
+          <h2 class="text-2xl font-bold text-emerald-700 mb-4">
+            Kami Berdiri Karena Kebutuhan
+          </h2>
+          <p class="text-gray-600 leading-relaxed">
+            Wijaya Rentcar Medan berdiri dari pengalaman langsung melihat banyak
+            orang kesulitan mencari layanan sewa mobil yang benar-benar bisa
+            diandalkan. Kami hadir dengan filosofi:
+            <strong
+              >"Pelayanan bukan hanya soal mobil, tapi soal
+              kepercayaan."</strong
+            >
+          </p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div data-aos="fade-left">
           <img
-            src="images/team2.jpeg"
-            alt="Team Member 2"
-            class="rounded-lg shadow mb-4"
+            src="images/tentang-kami.webp"
+            alt="Tentang Kami"
+            class="rounded-xl shadow-lg"
           />
-          <h3 class="text-2xl font-semibold mb-2">Samsudin</h3>
-          <p class="text-gray-700">Manajer operasi</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img
-            src="images/team3.jpeg"
-            alt="Team Member 3"
-            class="rounded-lg shadow mb-4"
-          />
-          <h3 class="text-2xl font-semibold mb-2">Walid</h3>
-          <p class="text-gray-700">Customer Service</p>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#1e293b] text-white py-10">
-      <div class="container mx-auto px-6 text-center">
-        <h3 class="text-2xl font-bold mb-4">Hubungi Kami</h3>
-        <p class="mb-2">📍 Jalan Sempurna, Deli Serdang</p>
-        <p class="mb-4">📞 +62 821-7139-4339 | ✉️ wardusanjeng@gmail.com</p>
-        <div class="flex justify-center space-x-4 text-xl">
-          <a href="https://wa.me/6282171394339" target="_blank"
-            ><i class="fab fa-whatsapp"></i
-          ></a>
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i
-          ></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i
-          ></a>
-                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i
-          ></a>
+    <!-- Visi & Misi -->
+    <section class="py-20 bg-emerald-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2
+          class="text-3xl font-bold text-center text-gray-800 mb-12"
+          data-aos="fade-up"
+        >
+          Visi & Misi Kami
+        </h2>
+        <div class="grid md:grid-cols-2 gap-10">
+          <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+            <h3 class="text-xl font-bold mb-2 text-emerald-700">Visi</h3>
+            <p class="text-gray-600">
+              Menjadi perusahaan rental mobil terbaik dan terpercaya di Sumatera
+              Utara dengan layanan kelas atas dan armada terlengkap.
+            </p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-md"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3 class="text-xl font-bold mb-2 text-emerald-700">Misi</h3>
+            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+              <li>Mengutamakan kenyamanan dan keamanan pelanggan.</li>
+              <li>Merawat semua unit armada secara berkala.</li>
+              <li>Memberikan layanan cepat dan responsif 24 jam.</li>
+              <li>Menjaga integritas dan kepercayaan pelanggan.</li>
+            </ul>
+          </div>
         </div>
-        <p class="mt-4 text-sm opacity-80">
-            © 2025 RF Transport. All rights reserved.
-        </p>
-        </div>
-        </footer>
-</body>
+      </div>
+    </section>
 
+    <!-- CTA -->
+    <section class="py-16 bg-white text-center">
+      <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Butuh Sewa Mobil Hari Ini?
+        </h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Kami siap antar jemput Anda dari bandara, hotel, hingga keperluan
+          pribadi atau bisnis.
+        </p>
+        <a
+          href="https://wa.me/6282171394339"
+          class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full shadow-lg transition-all"
+        >
+          <i class="fab fa-whatsapp mr-2"></i> Booking Sekarang
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-700 text-white py-8 text-center text-sm">
+      <div class="max-w-6xl mx-auto px-4">
+        &copy; 2025 Wijaya Rentcar Medan. Dibuat untuk kenyamanan perjalanan
+        Anda.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+  </body>
 </html>
