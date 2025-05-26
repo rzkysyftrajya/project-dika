@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // ===== MOBILE MENU SYSTEM =====
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
 
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // ===== SCROLL EFFECT ON NAVBAR =====
     const header = document.querySelector("header");
     let lastScroll = 0;
 
@@ -41,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // ===== GALLERY FILTER SYSTEM =====
     const filterButtons = document.querySelectorAll(".filter-btn");
     const galleryItems = document.querySelectorAll(".gallery-item");
 
@@ -65,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // ===== FORM VALIDATION (Kontak) =====
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
         contactForm.addEventListener("submit", function(e) {
@@ -90,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // ===== AOS INIT =====
     AOS.init({
         duration: 800,
         once: true,
@@ -100,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function() {
         disable: window.innerWidth < 768,
     });
 
-    // ===== GALLERY HOVER EFFECT =====
     const galleryCards = document.querySelectorAll(".gallery-item");
     galleryCards.forEach((card) => {
         card.addEventListener("mousemove", (e) => {
@@ -122,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // ===== UTILS =====
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
@@ -145,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
-    // ===== PERFORMANCE OPTIMIZATION =====
     let resizeTimer;
     window.addEventListener("resize", () => {
         document.body.classList.add("resize-animation-stopper");
