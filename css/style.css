@@ -75,12 +75,7 @@
 
 /* Lazy Image Loading */
 img[loading="lazy"] {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-img[loading="lazy"].loaded {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 /* Custom Scrollbar */
