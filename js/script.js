@@ -1,149 +1,153 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
+    /* ========== MOBILE MENU TOGGLE ========== */
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
 
     if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener("click", function() {
-            const icon = menuToggle.querySelector("i");
-            const isOpen = mobileMenu.style.maxHeight === "500px";
+        const icon = menuToggle.querySelector("i");
 
+        menuToggle.addEventListener("click", () => {
+            const isOpen = mobileMenu.style.maxHeight === "500px";
             mobileMenu.style.maxHeight = isOpen ? "0" : "500px";
+
             icon.classList.toggle("fa-bars", isOpen);
             icon.classList.toggle("fa-times", !isOpen);
         });
 
+        // Close menu if clicked outside
         document.addEventListener("click", (e) => {
             if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 mobileMenu.style.maxHeight = "0";
-                const icon = menuToggle.querySelector("i");
                 icon.classList.add("fa-bars");
                 icon.classList.remove("fa-times");
             }
         });
     }
 
-    const header = document.querySelector("header");
-    let lastScroll = 0;
+    /* ========== NAVBAR HIDE ON SCROLL DOWN ========== */
+    const header = document.querySelector("nav");
+    let lastScrollY = window.scrollY;
 
     if (header) {
         window.addEventListener("scroll", () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > lastScroll && currentScroll > 100) {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScrollY && currentScroll > 80) {
                 header.style.transform = "translateY(-100%)";
             } else {
                 header.style.transform = "translateY(0)";
             }
-
-            lastScroll = currentScroll;
+            lastScrollY = currentScroll;
         });
     }
 
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const galleryItems = document.querySelectorAll(".gallery-item");
+    /* ========== CAROUSEL HANDLING ========== */
+    const slides = document.querySelectorAll(".carousel-slide");
+    let currentIndex = 0;
 
-    filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const filter = button.textContent.toLowerCase();
+    const showSlide = (index) => {
+        if (!slides.length) return;
+        slides.forEach((slide) => slide.classList.remove("active"));
+        slides[index].classList.add("active");
+    };
 
-            filterButtons.forEach((btn) => {
-                btn.classList.remove("bg-emerald-600", "text-white");
-                btn.classList.add("bg-gray-200", "hover:bg-emerald-100");
-            });
+    const nextSlide = () => {
+        if (!slides.length) return;
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    };
 
-            button.classList.add("bg-emerald-600", "text-white");
-            button.classList.remove("bg-gray-200", "hover:bg-emerald-100");
+    const prevSlide = () => {
+        if (!slides.length) return;
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    };
 
-            document.querySelectorAll(".armada-card").forEach((card) => {
-                const category = card.getAttribute("data-category");
-                card.style.display =
-                    filter === "all" || category === filter ? "block" : "none";
-            });
+    if (slides.length > 0) {
+        showSlide(currentIndex);
+        setInterval(nextSlide, 5000);
+    }
+
+    const prevBtn = document.querySelector(".carousel-prev");
+    const nextBtn = document.querySelector(".carousel-next");
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener("click", prevSlide);
+        nextBtn.addEventListener("click", nextSlide);
+    }
+
+    // Swipe support
+    const carouselContainer = document.querySelector(".carousel-container");
+    let startX = 0;
+    let endX = 0;
+
+    if (carouselContainer) {
+        carouselContainer.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
         });
-    });
 
-    const contactForm = document.getElementById("contact-form");
-    if (contactForm) {
-        contactForm.addEventListener("submit", function(e) {
+        carouselContainer.addEventListener("touchend", (e) => {
+            endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) nextSlide();
+            else if (endX - startX > 50) prevSlide();
+        });
+    }
+
+    /* ========== FORM HANDLING ========== */
+    const form = document.getElementById("contact-form");
+
+    if (form) {
+        form.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const name = this.querySelector("#name").value.trim();
-            const email = this.querySelector("#email").value.trim();
-            const message = this.querySelector("#message").value.trim();
+            const name = form.querySelector("#name").value.trim();
+            const email = form.querySelector("#email").value.trim();
+            const message = form.querySelector("#message").value.trim();
 
             if (!name || !email || !message) {
-                showAlert("Harap isi semua field", "error");
+                showAlert("Harap isi semua field!", "error");
                 return;
             }
 
             if (!validateEmail(email)) {
-                showAlert("Format email tidak valid", "error");
+                showAlert("Format email tidak valid!", "error");
                 return;
             }
 
-            showAlert("Pesan terkirim! Kami akan segera menghubungi Anda", "success");
-            this.reset();
+            showAlert("Pesan berhasil dikirim!", "success");
+            form.reset();
         });
     }
 
-    AOS.init({
-        duration: 800,
-        once: true,
-        easing: "ease-in-out-quad",
-        mirror: false,
-        offset: 120,
-        disable: window.innerWidth < 768,
-    });
+    const showAlert = (message, type) => {
+        const alert = document.createElement("div");
+        alert.textContent = message;
+        alert.className = `fixed top-4 right-4 px-5 py-3 rounded-md shadow-lg text-white z-[9999] transition-opacity duration-300 ${
+      type === "success" ? "bg-green-500" : "bg-red-500"
+    }`;
 
-    const galleryCards = document.querySelectorAll(".gallery-item");
-    galleryCards.forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-            if (window.innerWidth > 768) {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                card.style.transform = `
-          perspective(1000px)
-          rotateX(${(y - rect.height / 2) / 20}deg)
-          rotateY(${-(x - rect.width / 2) / 20}deg)
-        `;
-            }
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "none";
-        });
-    });
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    function showAlert(message, type) {
-        const alertDiv = document.createElement("div");
-        alertDiv.className = `fixed top-4 right-4 px-6 py-4 rounded-lg shadow-lg text-white ${
-      type === "error" ? "bg-red-500" : "bg-green-500"
-    } z-50 transition-opacity`;
-        alertDiv.textContent = message;
-
-        document.body.appendChild(alertDiv);
+        document.body.appendChild(alert);
 
         setTimeout(() => {
-            alertDiv.style.opacity = "0";
-            setTimeout(() => {
-                alertDiv.remove();
-            }, 300);
-        }, 3000);
-    }
+            alert.style.opacity = "0";
+            setTimeout(() => alert.remove(), 300);
+        }, 2500);
+    };
 
-    let resizeTimer;
-    window.addEventListener("resize", () => {
-        document.body.classList.add("resize-animation-stopper");
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            document.body.classList.remove("resize-animation-stopper");
-        }, 400);
-    });
+    const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    /* ========== SCROLL ANIMASI ELEMENT (tanpa AOS) ========== */
+    const reveals = document.querySelectorAll(".reveal-up");
+
+    const revealOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        reveals.forEach((el) => {
+            const boxTop = el.getBoundingClientRect().top;
+            if (boxTop < triggerBottom) {
+                el.classList.add("reveal-visible");
+            }
+        });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
 });

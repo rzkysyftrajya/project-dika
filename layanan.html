@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layanan WRM - Sewa Mobil Medan</title>
+    <meta name="description" content="Daftar layanan sewa mobil WRM di Medan, dari sewa mobil lepas kunci hingga paket wisata. Hubungi kami sekarang!" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -23,16 +24,28 @@
             <div class="flex justify-between items-center h-20">
                 <a href="index.html" class="flex items-center gap-3 group">
                     <img src="images/logo-wijaya.webp" alt="Wijaya Rentcar Medan" class="h-14 w-14 object-contain transition-all duration-500 group-hover:rotate-[15deg]" />
-                    <span class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">Wijaya Rentcar</span
+                    <span class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">WRM</span
             >
           </a>
           <div class="hidden md:flex items-center space-x-6">
-            <a href="index.html" class="nav-link">Beranda</a>
-            <a href="tentang.html" class="nav-link">Tentang</a>
-            <a href="layanan.html" class="nav-link">Layanan</a>
-            <a href="armada.html" class="nav-link">Armada</a>
-            <a href="kontak.html" class="nav-link">Kontak</a>
-            <a href="testimoni.html" class="nav-link">Testimoni</a>
+            <a href="index.html" class="nav-link hover:text-emerald-600"
+              >Beranda</a
+            >
+            <a href="tentang.html" class="nav-link hover:text-emerald-600"
+              >Tentang</a
+            >
+            <a href="layanan.html" class="nav-link hover:text-emerald-600"
+              >Layanan</a
+            >
+            <a href="armada.html" class="nav-link hover:text-emerald-600"
+              >Armada</a
+            >
+            <a href="kontak.html" class="nav-link hover:text-emerald-600"
+              >Kontak</a
+            >
+            <a href="testimoni.html" class="nav-link hover:text-emerald-600"
+              >Testimoni</a
+            >
             <a
               href="https://wa.me/6282171394339"
               class="ml-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full shadow-lg flex items-center gap-2 transform hover:scale-105"
@@ -226,17 +239,17 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12">
+    <footer class="bg-gray-900 text-white py-12">
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
         <div>
-          <h3 class="text-xl font-bold mb-4 text-white">WRM</h3>
+          <h3 class="text-xl font-bold mb-4">WRM</h3>
           <p>
             Sewa mobil terpercaya di Medan. Layanan 24 jam dengan armada
             terbaik.
           </p>
         </div>
         <div>
-          <h4 class="font-semibold mb-4 text-white">Navigasi</h4>
+          <h4 class="font-semibold mb-4">Navigasi</h4>
           <ul class="space-y-2">
             <li><a href="index.html" class="hover:underline">Beranda</a></li>
             <li><a href="armada.html" class="hover:underline">Armada</a></li>
@@ -245,7 +258,7 @@
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold mb-4 text-white">Ikuti Kami</h4>
+          <h4 class="font-semibold mb-4">Ikuti Kami</h4>
           <div class="flex gap-4">
             <a
               href="https://instagram.com/wrm.rentcar"
@@ -276,7 +289,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
     <script>
-      AOS.init();
+      AOS.init({
+        duration: 800,
+        once: true,
+        easing: "ease-in-out-quad",
+        mirror: false,
+        offset: 120,
+        disable: window.innerWidth < 768,
+      });
     </script>
   </body>
 </html>

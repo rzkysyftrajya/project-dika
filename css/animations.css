@@ -1,19 +1,20 @@
-@keyframes logo-float {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    filter: drop-shadow(0 5px 15px rgba(5, 150, 105, 0.2));
+/* ===============================
+   ANIMASI UTAMA - WRM Rentcar
+   =============================== */
+
+/* Float Naik-Turun Ringan */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px) rotate(5deg);
-    filter: drop-shadow(0 15px 25px rgba(5, 150, 105, 0.4));
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-    filter: drop-shadow(0 5px 15px rgba(5, 150, 105, 0.2));
+    transform: translateY(-20px);
   }
 }
 
-@keyframes hero-wave {
+/* Latar Bergelombang / Wave Background */
+@keyframes wave {
   0% {
     background-position: 0% 50%;
   }
@@ -25,17 +26,7 @@
   }
 }
 
-@keyframes slide-in-left {
-  from {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
+/* Ikon Berputar */
 @keyframes icon-spin {
   from {
     transform: rotate(0deg);
@@ -45,6 +36,7 @@
   }
 }
 
+/* Tombol Berdenyut */
 @keyframes button-pulse {
   0% {
     transform: scale(1);
@@ -57,18 +49,20 @@
   }
 }
 
+/* Kartu dengan Efek 3D */
 @keyframes card-3d {
   0% {
-    transform: perspective(1000px) rotateX(0) rotateY(0);
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
   }
   50% {
     transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
   }
   100% {
-    transform: perspective(1000px) rotateX(0) rotateY(0);
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
   }
 }
 
+/* Skeleton Loading */
 @keyframes skeleton-loading {
   0% {
     background-position: 200% 0;
@@ -78,26 +72,81 @@
   }
 }
 
-.logo-float {
-  animation: logo-float 6s ease-in-out infinite;
+/* Fade-In Slide dari Bawah */
+@keyframes slide-up-fade {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.button-pulse:hover {
+/* ================================
+   KELAS UTAMA ANIMASI
+   ================================ */
+
+/* Logo Mengambang */
+.logo-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Tombol Interaktif */
+.button-pulse {
   animation: button-pulse 1.5s ease infinite;
 }
 
+/* Kartu Hover 3D */
 .armada-card:hover {
   animation: card-3d 1.5s ease forwards;
 }
 
+/* Loading Placeholder */
 .skeleton-animate {
   animation: skeleton-loading 2s linear infinite;
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
 }
 
+/* Slide Fade-in */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+.reveal-up.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ikon Spin (untuk loading/branding) */
+.icon-spin {
+  animation: icon-spin 2s linear infinite;
+}
+
+/* ================================
+   RESPONSIF & AKSESIBILITAS
+   ================================ */
+
+/* Nonaktifkan animasi di mobile */
 @media (max-width: 768px) {
   .mobile-disable-animation {
     animation: none !important;
+  }
+}
+
+/* Aksesibilitas: Kurangi gerakan */
+@media (prefers-reduced-motion: reduce) {
+  .logo-float,
+  .button-pulse,
+  .armada-card:hover,
+  .reveal-up {
+    animation: none !important;
+  }
+
+  .skeleton-animate {
+    background: #f0f0f0;
   }
 }

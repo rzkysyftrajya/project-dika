@@ -1,7 +1,240 @@
-/* ===== Custom Styles Wijaya Rentcar ===== */
-/* Tidak menggunakan Bootstrap - Murni Tailwind + Custom CSS */
+/* ===============================
+   WRM CUSTOM STYLE.CSS (RAPI & MODERN)
+   =============================== */
 
-/* Animasi Khusus */
+/* RESET DASAR & GLOBAL UTILITY */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "sans-serif";
+  background-color: #f9fafb;
+}
+
+img[loading="lazy"] {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+/* NAVIGATION LINK */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+  color: #374151;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #059669;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #059669;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ARMADA CARD */
+.armada-card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.armada-card:hover {
+  box-shadow: 0 10px 20px rgba(5, 108, 73, 0.2);
+}
+.armada-card:hover .fas.fa-star {
+  animation: float 1.5s ease-in-out infinite;
+}
+
+/* RESPONSIVE GALLERY */
+@media (max-width: 640px) {
+  .armada-card {
+    margin: 0 10px;
+  }
+  .armada-card img {
+    height: 200px;
+    object-position: center 30%;
+  }
+}
+
+/* FORM INPUT */
+input,
+textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+input:focus,
+textarea:focus {
+  border-color: #059669;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5, 108, 73, 0.1);
+}
+
+/* FORM CONTAINER */
+#contact-form {
+  background-color: #f3f4f6;
+}
+
+/* TESTIMONI */
+blockquote {
+  border-left: 4px solid #059669;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #6b7280;
+}
+blockquote cite {
+  font-style: normal;
+  color: #059669;
+}
+
+/* WHATSAPP BUTTON */
+.fixed {
+  z-index: 9999 !important;
+}
+
+/* FOOTER */
+footer {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+footer a {
+  color: #9ca3af;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* BUTTON STYLE */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background-color: #059669;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #047857;
+  transform: scale(1.05);
+}
+.btn-outline {
+  border: 2px solid #059669;
+  color: #059669;
+}
+.btn-outline:hover {
+  background-color: #ecfdf5;
+}
+
+/* SOCIAL ICON */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.social-icon:hover {
+  transform: translateY(-3px);
+}
+
+/* CAROUSEL */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.carousel-slide {
+  display: none;
+  text-align: center;
+}
+.carousel-slide.active {
+  display: block;
+}
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.carousel-slide h3 {
+  margin-top: 16px;
+  color: #059669;
+}
+.carousel-slide p {
+  color: #6b7280;
+}
+
+/* AOS CUSTOM */
+[data-aos="custom-flip"] {
+  transform: rotateY(90deg);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+[data-aos="custom-flip"].aos-animate {
+  transform: rotateY(0);
+  opacity: 1;
+}
+
+/* WAVE BACKGROUND */
+.hero-wave,
+.shape-overlays {
+  background: linear-gradient(45deg, #059669 0%, #10b981 100%);
+  background-size: 400% 400%;
+  animation: wave 18s ease infinite;
+  opacity: 0.1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* MOBILE MENU TRANSISI */
+#mobile-menu {
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+/* CUSTOM ANIMATIONS */
 @keyframes float {
   0%,
   100% {
@@ -23,96 +256,40 @@
     background-position: 0% 50%;
   }
 }
-
-/* Shape Overlays Hero */
-.shape-overlays {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: linear-gradient(45deg, #059669 0%, #10b981 100%);
-  opacity: 0.1;
-  animation: wave 18s ease infinite;
-  background-size: 400% 400%;
-}
-
-/* Efek Hover Khusus */
-.armada-card:hover .fas.fa-star {
-  animation: float 1.5s ease-in-out infinite;
-}
-
-/* Link Navigasi */
-.nav-link {
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #059669;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Responsive Image Gallery */
 @media (max-width: 640px) {
-  .armada-card {
-    margin: 0 10px;
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .armada-card img {
-    height: 200px;
-    object-position: center 30%;
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .max-w-6xl {
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-/* Lazy Image Loading */
-img[loading="lazy"] {
-  opacity: 1 !important;
+/* Pastikan gambar selalu responsif */
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .your-element {
+    width: 100%;
+    padding: 0 15px;
+  }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #059669;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #047857;
-}
-
-/* Override Tailwind */
-.bg-emerald-600 {
-  background-color: #059669 !important;
-}
-
-.text-emerald-600 {
-  color: #059669 !important;
-}
-
-/* Animasi Khusus untuk AOS */
-[data-aos="custom-flip"] {
-  transform: rotateY(90deg);
-  opacity: 0;
-  transition-property: transform, opacity;
-}
-
-[data-aos="custom-flip"].aos-animate {
-  transform: rotateY(0);
-  opacity: 1;
+.item {
+  flex: 1 1 100%;
 }
